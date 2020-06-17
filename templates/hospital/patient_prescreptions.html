@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block maincontent %}
+<!--inner banner-->
+{% if messages %}
+<div class="alert alert-success text-center" id="alert-msg">
+  {% for message in messages %}
+  <h3>{{ message }}</h3>
+  {% endfor %}
+</div>
+{% endif %}
+
+<div class="inner-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1>Prescription Details</h1>
+      </div>
+      <div class="col-md-5">
+        <ol class="breadcrumb">
+          <li><a href="{% url 'index' %}">Home</a></li>
+          <li class="active">Prescription Details</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<!--inner banner End-->
+
+<!--Main Content Start-->
+<div class="main-content padding-0">
+  <section class="appointment-form">
+    <div class="container">
+      <p><h2>Doctor:: {{user.username}}</h2></p><br><br>
+      <p><h2>medicine:: {{prescribes.medicine}}</h2></p><br><br>
+      <p><h2>Reason:: {{prescribes.reason}}</h2></p><br><br>
+      <p><h2>Date:: {{prescribes.date}}</h2></p><br><br>
+        <br><br><br><br><br>
+    </div>
+  </section>
+</div>
+<style>
+    th{
+        color: blue;
+        text-align: center;
+    }
+    a{
+        color: red;
+        
+    }
+    td{
+        text-align: center;
+    }
+</style>
+<!--Main Content End-->
+{% endblock maincontent %}

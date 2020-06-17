@@ -34,41 +34,33 @@
       <div class="row">
         <div class="col-md-6"><img src="{% static 'heartcare/images/form-pic.jpg' %}" alt=""></div>
         <div class="col-md-6">
-          <form action="{% url 'appointment' %}" method="post">
+          <form action="{% url 'prescribe' %}" method="post">
             {% csrf_token %}
             <div class="app-form">
               <div class="col-md-6 col-sm-6">
-                <input class="form-control" placeholder="Full Name *" type="text" name="name">
+                <input class="form-control" placeholder="Full Nam *" type="text" name="name">
               </div>
               <div class="col-md-6 col-sm-6">
-                <input class="form-control" placeholder="Your Phone *" type="text" name="phone">
+                <input class="form-control" placeholder="Medicine" type="text" name="medicine">
               </div>
+              
               <div class="col-md-6 col-sm-6">
-                <input class="form-control" placeholder="Your Email *" type="text" name="email">
-              </div>
-              <div class="col-md-6 col-sm-6">
-                <select name="doctor">
-                  <option disabled>--Doctor--</option>
-                  {% for doctor in doctors %}
-                  <option value="{{ doctor.id }}">{{ doctor.username }}</option>
+                <select name="email">
+                  <option disabled>--Patient--</option>
+                  {% for name in names %}
+                  <option value="{{ name.id }}">{{ name.email }}</option>
                   {% endfor %}
                 </select>
               </div>
+
               <div class="col-md-6 col-sm-6">
                 <div class="input-group date">
                   <input placeholder="Date *" name="date" class="form-control" type="date">
                   <span class="input-group-addon"> <i class="fa fa-calendar" aria-hidden="true"></i> </span> </div>
               </div>
-              <div class="col-md-6 col-sm-6">
-                <select name="time">
-                  <option disabled>--Time--</option>
-                  <option value="morning">Morning</option>
-                  <option value="morning">Evening</option>
-                </select>
-              </div>
               <div class="col-md-12 text-center">
-                <textarea placeholder="Extra Note" name="note"></textarea>
-                <input value="Book Appointment" type="submit">
+                <textarea placeholder="Reason" name="reason"></textarea>
+                <input value="Prescribe" type="submit">
               </div>
             </div>
           </form>
